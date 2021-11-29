@@ -2,3 +2,6 @@ Flax
 opencv-python==4.5.4.60
 numpy==1.21.4
 gunicorn==20.1.0
+itsdangerous
+MarkupSafe
+Werkzeug
