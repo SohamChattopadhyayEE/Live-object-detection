@@ -1,5 +1,7 @@
-from flask import Flask, render_template, url_for, Response
+import os
 import argparse
+from flask import Flask, render_template, url_for, Response
+
 
 from utils.object_detection import object_detection as live_object_detection
 
