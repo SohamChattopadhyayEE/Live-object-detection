@@ -1,4 +1,7 @@
 # Live object detection
+## Dependencies
+    pip install requirements.txt
+   
 ## Arguments
     *\directory> python app.py --help
     usage: app.py [-h] [-wt MODEL_WEIGHTS] [-cfg MODEL_CFG] [-cls DATASET_CLASSES] [-is_realtime] [-vid VID_PATH] [-fd FRAME_DIMENSION]
