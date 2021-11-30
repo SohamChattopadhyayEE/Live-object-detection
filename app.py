@@ -1,11 +1,10 @@
-import os
-import argparse
 from flask import Flask, render_template, url_for, Response
-
+import argparse
+import os
 
 from utils.object_detection import object_detection as live_object_detection
 
-
+'''
 parser = argparse.ArgumentParser(description="Object detection with OpenCV")
 # Paths 
 parser.add_argument('-wt','--model_weights',type=str,default='model_yolov3/yolov3.weights',
@@ -25,7 +24,14 @@ parser.add_argument('-fd','--frame_dimension',type=int,default=320,
 parser.add_argument('-conf_threh','--threshold_confidence',type=int,default=0.3,
                     help= "Threshold confidence for selecting an object")
 args = parser.parse_args()
-
+'''
+weight_path = 'model_yolov3/yolov3.weights'
+cfg_path = 'model_yolov3/yolov3.cfg'
+dataset_classes = 'coco.txt'
+is_realtime = True
+vid_path = 'video.mp4'
+frame_dimension = 320
+threshold_confidence = 0.3
 
 app = Flask(__name__)
 
@@ -35,8 +41,10 @@ def index():
 
 @app.route('/object_detection')
 def object_detection():
-    model = live_object_detection(args.model_weights, args.model_cfg, args.dataset_classes, args.is_realtime, 
-                                    args.vid_path, args.frame_dimension, args.threshold_confidence)
+    #model = live_object_detection(args.model_weights, args.model_cfg, args.dataset_classes, args.is_realtime, 
+                                    #args.vid_path, args.frame_dimension, args.threshold_confidence)
+    model = live_object_detection(weight_path, cfg_path, dataset_classes, is_realtime, 
+                                    vid_path, frame_dimension, threshold_confidence)
     return Response(model.detect_object(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__=="__main__":
