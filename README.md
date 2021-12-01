@@ -1,5 +1,7 @@
 # Live object detection
 This is a Python-based project, where real-time object detection from the `integrated webcam` is performed. That is by execution of the code, a web url will be generated. The url has to be copied and pasted in the web browser and then the webcam will be activated and real-time object detection will start. The project utilizes `Flask` framework as web tool and `OpenCV` for the object detection purpose. 
+## App
+The project is deployed on Heroku. Following is the link to the Heroku-api of the project https://live-object-detection.herokuapp.com/
 ## Dependencies
     pip install requirements.txt
    
