@@ -23,8 +23,16 @@ parser.add_argument('-fd','--frame_dimension',type=int,default=320,
                     help= "The dimensions of the frames")
 parser.add_argument('-conf_threh','--threshold_confidence',type=int,default=0.3,
                     help= "Threshold confidence for selecting an object")
-#args = parser.parse_args()
-args, unknown = parser.parse_known_args()
+
+# App information
+parser.add_argument('-p', '--port', type=int, default=5000,
+                    help="The port of the server")
+parser.add_argument('-hst','--host',type=str, default='0.0.0.0',
+                    help= "The host")
+parser.add_argument('-is_dbg','--is_debug',action='store_false',
+                    help="Is debugging be performed during the app run")
+args = parser.parse_args()
+
 
 app = Flask(__name__)
 
@@ -39,7 +47,7 @@ def object_detection():
     return Response(model.detect_object(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__=="__main__":
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0',debug=True, port=port)
+    port = int(os.environ.get('PORT', args.port))
+    app.run(host=args.host,debug=args.is_debug, port=port)
 
 
