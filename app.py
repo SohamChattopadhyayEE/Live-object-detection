@@ -23,7 +23,8 @@ parser.add_argument('-fd','--frame_dimension',type=int,default=320,
                     help= "The dimensions of the frames")
 parser.add_argument('-conf_threh','--threshold_confidence',type=int,default=0.3,
                     help= "Threshold confidence for selecting an object")
-args = parser.parse_args()
+#args = parser.parse_args()
+args, unknown = parser.parse_known_args()
 
 app = Flask(__name__)
 
