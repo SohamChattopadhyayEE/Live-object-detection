@@ -6,9 +6,9 @@ The project is deployed on Heroku. Following is the link to the Heroku-api of th
     pip install requirements.txt
    
 ## Arguments
-    *\directory> python app.py --help
+    *\directory>  python app.py -h/--help
     usage: app.py [-h] [-wt MODEL_WEIGHTS] [-cfg MODEL_CFG] [-cls DATASET_CLASSES] [-is_realtime] [-vid VID_PATH] [-fd FRAME_DIMENSION]
-                  [-conf_threh THRESHOLD_CONFIDENCE]
+                  [-conf_threh THRESHOLD_CONFIDENCE] [-p PORT] [-hst HOST] [-is_dbg]
 
     Object detection with OpenCV
 
@@ -28,5 +28,9 @@ The project is deployed on Heroku. Following is the link to the Heroku-api of th
                             The dimensions of the frames
       -conf_threh THRESHOLD_CONFIDENCE, --threshold_confidence THRESHOLD_CONFIDENCE
                             Threshold confidence for selecting an object
+      -p PORT, --port PORT  The port of the server
+      -hst HOST, --host HOST
+                            The host
+      -is_dbg, --is_debug   Is debugging be performed during the app run
 ## Run
     *\directory> python app.py
